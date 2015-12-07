@@ -3,11 +3,18 @@ alias pg='ping google.com'
 alias nt='open -a Terminal ""'
 alias emacs="/usr/local/Cellar/emacs/24.5/Emacs.app/Contents/MacOS/Emacs -nw"
 alias inbox='cd /Users/nicholaslau/Dropbox/Inbox'
+alias dev='cd /Users/nicholaslau/Dropbox/Dev'
 
 export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 alias ls='ls -GFh'
+
+bindkey "^[[A" history-search-backward
+bindkey "^[[B" history-search-forward
+
+# Octopress, prevents 'zsh: no matches found' error
+alias rake='noglob rake'
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/nicholaslau/.oh-my-zsh
@@ -92,4 +99,4 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+export PYTHONPATH=/Library/Python/2.7/site-packages
