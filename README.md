@@ -7,3 +7,4 @@ Simply clone to your new box under ~/.profiles and then symlink your profiles to
 * ln -s ~/.profiles/tmux.conf ~/.tmux.conf
 * ln -s ~/.profiles/vimrc ~/.vimrc
 * ln -s ~/.profiles/zshrc ~/.zshrc
+* etc
