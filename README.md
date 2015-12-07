@@ -1,7 +1,9 @@
-Simply clone to your new box and then symlink ~/.vimrc to ~/.vim/vimrc and you’re done.
+Simply clone to your new box under ~/.profiles and then symlink your profiles to the repo. For example:
 
-* git clone https://github.com/nmlau/profiles.git
-* ln -s ~/.profiles/vimrc ~/.vimrc
-* ln -s ~/.profiles/emacs ~/.emacs
+* git clone https://github.com/nmlau/profiles.git ~/.profiles
 * ln -s ~/.profiles/bash_profile ~/.bash_profile
-* etc
+* ln -s ~/.profiles/bashrc ~/.bashrc
+* ln -s ~/.profiles/emacs ~/.emacs
+* ln -s ~/.profiles/tmux.conf ~/.tmux.conf
+* ln -s ~/.profiles/vimrc ~/.vimrc
+* ln -s ~/.profiles/zshrc ~/.zshrc
