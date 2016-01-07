@@ -1,10 +1,17 @@
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 alias pg='ping google.com'
 alias nt='open -a Terminal ""'
+alias nti='open -a iTerm ""'
 alias emacs="/usr/local/Cellar/emacs/24.5/Emacs.app/Contents/MacOS/Emacs -nw"
 alias inbox='cd /Users/nicholaslau/Dropbox/Inbox'
 alias dev='cd /Users/nicholaslau/Dropbox/Dev'
+alias fixaudio='killall coreaudio' # Needs 'sudo'
+alias fixpermissions='chown -R `whoami`:admin /usr/local' # Needs 'sudo'
+alias killapp='function _killapp(){ps -ax | grep $1 | awk "{print \$1}" | xargs kill -9};_killapp' # ex: killapp Finder
 
+# source ~/.bin/tmuxinator.zsh
+
+export EDITOR='vim'
 export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad

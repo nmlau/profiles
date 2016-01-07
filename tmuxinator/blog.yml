@@ -1,0 +1,15 @@
+# ~/.tmuxinator/blog.yml
+
+name: blog
+root: ~/Dropbox/Dev/octopress
+
+# Runs after everything. Use it to attach to tmux with custom options etc.
+# post: tmux -CC attach -t blog
+
+windows:
+  - main:
+      layout: df90,101x26,0,0[101x13,0,0,12,101x12,0,14{50x12,0,14,13,50x12,51,14,15}]
+      panes:
+        - sublime .
+        - git status
+        - rake preview

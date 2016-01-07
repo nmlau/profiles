@@ -4,7 +4,12 @@ Simply clone to your new box under ~/.profiles and then symlink your profiles to
 * ln -s ~/.profiles/bash_profile ~/.bash_profile
 * ln -s ~/.profiles/bashrc ~/.bashrc
 * ln -s ~/.profiles/emacs ~/.emacs
+* ln -s ~/.profiles/tmuxinator ~/.tmuxinator
 * ln -s ~/.profiles/tmux.conf ~/.tmux.conf
 * ln -s ~/.profiles/vimrc ~/.vimrc
 * ln -s ~/.profiles/zshrc ~/.zshrc
 * etc
+
+### Setting up new profiles
+* cp -r ~/.tmuxinator ~/.profiles/tmuxinator
+* ln -s ~/.profiles/tmuxinator ~/.tmuxinator
