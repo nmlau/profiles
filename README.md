@@ -13,8 +13,6 @@ ln -s ~/.profiles/vimrc ~/.vimrc
 ln -s ~/.profiles/zshrc ~/.zshrc
 ```
 
-etc
-
 ### Setting up new profiles
 
 ```bash
