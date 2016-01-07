@@ -1,4 +1,6 @@
-Simply clone to your new box under ~/.profiles and then symlink your profiles to the repo. For example:
+### Getting Started
+
+Clone to your new box under ~/.profiles and then symlink your profiles to the repo. For example:
 
 * git clone https://github.com/nmlau/profiles.git ~/.profiles
 * ln -s ~/.profiles/bash_profile ~/.bash_profile
