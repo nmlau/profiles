@@ -11,12 +11,13 @@ ln -s ~/.profiles/tmuxinator ~/.tmuxinator
 ln -s ~/.profiles/tmux.conf ~/.tmux.conf
 ln -s ~/.profiles/vimrc ~/.vimrc
 ln -s ~/.profiles/zshrc ~/.zshrc
+ln -s ~/.profiles/key-bindings.zsh ~/.oh-my-zsh/lib/key-bindings.zsh
 ```
 
 ### Setting up new profiles
 
 ```bash
-cp -r ~/.tmuxinator ~/.profiles/tmuxinator
+cp -r ~/.tmuxinator ~/.profiles/tmuxinator # This line only needed for initial setup
 ln -s ~/.profiles/tmuxinator ~/.tmuxinator
 ```
 
