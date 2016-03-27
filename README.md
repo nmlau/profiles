@@ -19,3 +19,5 @@ ln -s ~/.profiles/zshrc ~/.zshrc
 cp -r ~/.tmuxinator ~/.profiles/tmuxinator
 ln -s ~/.profiles/tmuxinator ~/.tmuxinator
 ```
+
+### Potential Problems

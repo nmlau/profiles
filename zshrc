@@ -1,24 +1,20 @@
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 alias pg='ping google.com'
-alias nt='open -a Terminal ""'
-alias nti='open -a iTerm ""'
+# alias nt='open -a Terminal ""'
+alias nt='open -a iTerm ""'
 alias emacs="/usr/local/Cellar/emacs/24.5/Emacs.app/Contents/MacOS/Emacs -nw"
 alias inbox='cd /Users/nicholaslau/Dropbox/Inbox'
 alias dev='cd /Users/nicholaslau/Dropbox/Dev'
 alias fixaudio='killall coreaudio' # Needs 'sudo'
 alias fixpermissions='chown -R `whoami`:admin /usr/local' # Needs 'sudo'
-alias killapp='function _killapp(){ps -ax | grep $1 | awk "{print \$1}" | xargs kill -9};_killapp' # ex: killapp Finder
 
-# source ~/.bin/tmuxinator.zsh
+alias fuck='$(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
 
 export EDITOR='vim'
 export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 alias ls='ls -GFh'
-
-bindkey "^[[A" history-search-backward
-bindkey "^[[B" history-search-forward
 
 # Octopress, prevents 'zsh: no matches found' error
 alias rake='noglob rake'
@@ -107,3 +103,5 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 export PYTHONPATH=/Library/Python/2.7/site-packages
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

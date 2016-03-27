@@ -1,0 +1,15 @@
+# ~/.tmuxinator/alarm.yml
+
+name: alarm
+root: ~/Dropbox/Dev/RPiAlarm
+
+# Runs after everything. Use it to attach to tmux with custom options etc.
+# post: tmux -CC attach -t alarm
+
+windows:
+  - main:
+      layout: df90,101x26,0,0[101x13,0,0,12,101x12,0,14{50x12,0,14,13,50x12,51,14,15}]
+      panes:
+        - sublime .
+        - git status
+        - #empty
