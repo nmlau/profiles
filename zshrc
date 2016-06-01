@@ -74,7 +74,7 @@ ZSH_THEME="robbyrussell"
 
 # User configuration
 
-export PATH="/Users/nicholaslau/.rvm/gems/ruby-2.0.0-p643/bin:/Users/nicholaslau/.rvm/gems/ruby-2.0.0-p643@global/bin:/Users/nicholaslau/.rvm/rubies/ruby-2.0.0-p643/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin:/Users/nicholaslau/.rvm/bin"
+# export PATH="/Users/nicholaslau/.rvm/gems/ruby-2.0.0-p643/bin:/Users/nicholaslau/.rvm/gems/ruby-2.0.0-p643@global/bin:/Users/nicholaslau/.rvm/rubies/ruby-2.0.0-p643/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin:/Users/nicholaslau/.rvm/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -102,6 +102,17 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
+
+bindkey '^[^[[C' forward-word                        # [Opt-RightArrow] - move forward one word
+bindkey '^[^[[D' backward-word                        # [Opt-LeftArrow] - move forward one word
+# tmux zsh iterm reads Opt+Arrow differently
+bindkey '^[[1;3C' forward-word                        # [Opt-RightArrow] - move forward one word
+bindkey '^[[1;3D' backward-word                       # [Opt-LeftArrow] - move backward one word
+# bindkey '^[[1;10C' forward-kill-word
+# bindkey '^[[1;10D' backward-kill-word
+
 export PYTHONPATH=/Library/Python/2.7/site-packages
 
+export PATH="$HOME/bin:/usr/local/bin:$PATH"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM so that it can script

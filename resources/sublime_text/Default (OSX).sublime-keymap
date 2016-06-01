@@ -1,0 +1,4 @@
+[
+    { "keys": ["shift+super+d"], "command": "plain_tasks_complete","context": [{ "key": "selector", "operator": "equal", "operand": "text.todo" }] },
+    { "keys": ["f12"], "command": "reindent"} 
+]

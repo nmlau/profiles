@@ -1,0 +1,10 @@
+{
+	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night-Eighties.tmTheme",
+	"font_size": 14.0,
+	"ignored_packages":
+	[
+		"Origami",
+		"SublimeCodeIntel",
+		"Vintage"
+	]
+}

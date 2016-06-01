@@ -1,0 +1,18 @@
+{
+  "stats_format": "", // "stats_format": "☐$o ✔$d ✘$c",
+  "stats_ignore_archive": true, // if you want the statistics do not include the archived tasks:
+
+  "open_tasks_bullet": "☐", // options: - | ❍ | ❑ | ■ | □ | ☐ | ▪ | ▫ | – | — | ≡ | → | › | [ ]
+  "done_tasks_bullet": "+", // options: + | ✓ | ✔ | √ | [x]
+  "cancelled_tasks_bullet": "x", // options: x | ✘ | [-]
+  "before_tasks_bullet_margin": 2,
+
+  "color_scheme": "Packages/PlainTasks/tasks-eighties-colored.hidden-tmTheme",
+  "line_numbers": true,
+  "gutter": true,
+  "fold_buttons": false,
+  "extensions":
+  [
+    "todo"
+  ]
+}
