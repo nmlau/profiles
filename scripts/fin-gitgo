@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Author: Nathan Pastor
+# Usage: fin gitgo
+# Summary: Lists your recently-accessed git branches, and allows you to jump to one quickly.
+# Help: Run from any git repo. You can switch branches by entering the line number.
+
+# This command tests if we're in a git repo. We just want its return code.
+git rev-parse --git-dir 1>&- 2>&-
+
+if [ $? -ne 0 ]; then
+    echo "You must run this script from within a git repository."
+    exit 1
+fi
+
+cmdBase="git for-each-ref --sort=-committerdate refs/heads/"
+if [ $# -eq 0 ]
+then
+    $cmdBase --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) %(authoremail) %(color:green)%(committerdate:relative)%(color:reset)' --count=10 | nl
+    read -e -p 'Select a branch: ' -n 1 branch
+    echo
+    if [ ${#branch} -eq 1 ]
+    then
+        branchIdx=$branch
+    else
+        exit
+    fi
+else
+    branchIdx=$1
+fi
+branch="$($cmdBase --format='%(refname:short)' --count=10 | head -n $branchIdx | tail -1)"
+echo "Checking out $branch"
+git checkout $branch
