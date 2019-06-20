@@ -1,4 +1,3 @@
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 alias pg='ping google.com'
 alias nt='open -a Terminal ""'
 alias inbox='cd ~/Dropbox/Inbox' 
@@ -7,5 +6,4 @@ alias inbox='cd ~/Dropbox/Inbox'
 # export CLICOLOR=1
 # export LSCOLORS=ExFxBxDxCxegedabagacad
 alias ls='ls -GFh'
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+eval "$($HOME/fin/bin/fin init -)"

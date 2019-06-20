@@ -1,26 +1,46 @@
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-alias pg='ping google.com'
-# alias nt='open -a Terminal ""'
+# Path to your oh-my-zsh installation.
+export ZSH=/Users/nicholas.lau/.oh-my-zsh
+
 alias nt='open -a iTerm ""'
-alias emacs="/usr/local/Cellar/emacs/24.5/Emacs.app/Contents/MacOS/Emacs -nw"
-alias inbox='cd /Users/nicholaslau/Dropbox/Inbox'
-alias dev='cd /Users/nicholaslau/Dropbox/Dev'
+alias inbox='cd ~/Dropbox/Life/work/Inbox_w'
+alias dev='cd ~/code/main'
+
+# git stuff
+alias grm='git rm'
+alias gcms='git checkout stable-master'
+alias gfrms='git fetch origin stable-master && git rebase origin/stable-master'
+alias gfrm='git fetch origin master && git rebase origin/master'
+alias ggo='fin gitgo'
+alias grs='git reset --soft' # overwrites git.plugin.zsh, alias gru='git reset --'
+alias grhd='git reset --hard' # overwrites git.plugin.zsh, alias gru='git reset --'
+alias gpr='git prune'
+alias gstk='git stash --keep-index -u'
+
+# random
+alias updatedns='cd ~/code/scripts && ./updatedns-osx'
 alias fixaudio='killall coreaudio' # Needs 'sudo'
 alias fixpermissions='chown -R `whoami`:admin /usr/local' # Needs 'sudo'
+alias rake='noglob rake' # Octopress, prevents 'zsh: no matches found' error
 
-alias fuck='$(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
+# keyboard shortcuts
+bindkey '^[^[[C' forward-word		# [Opt-RightArrow] - move forward one word
+bindkey '^[^[[D' backward-word		# [Opt-LeftArrow] - move forward one word
+bindkey '^[[1;3C' forward-word		# [Opt-RightArrow] - move forward one word # tmux zsh iterm reads Opt+Arrow differently
+bindkey '^[[1;3D' backward-word		# [Opt-LeftArrow] - move backward one word # tmux zsh iterm reads Opt+Arrow differently
 
-export EDITOR='vim'
+# Database tools, https://redfin.atlassian.net/wiki/display/EN/Database+Tools
+alias sfperf='psql -U postgres -h sfperf-query-1.redfintest.com stingray_sfperf'
+alias sftrunk='psql -U postgres -h sftrunk-query-1.redfintest.com stingray_sftrunk'
+alias newschema='psql -U postgres -h ns-query-1.redfintest.com stingray_new_schema'
+alias release='psql -U postgres -h release-query-1.redfintest.com stingray_release'
+alias trunk='psql -U postgres -h trunk-query-1.redfintest.com stingray_trunk'
+
+export VISUAL='vim'
+export EDITOR='subl'
 export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 alias ls='ls -GFh'
-
-# Octopress, prevents 'zsh: no matches found' error
-alias rake='noglob rake'
-
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/nicholaslau/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -70,11 +90,11 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-# plugins=(git)
+plugins=(git) # TODO this line is causing: is_plugin:cd:3: too many arguments is_plugin:cd:4: too many arguments is_plugin:cd:3: too many arguments is_plugin:cd:4: too many arguments
 
 # User configuration
 
-# export PATH="/Users/nicholaslau/.rvm/gems/ruby-2.0.0-p643/bin:/Users/nicholaslau/.rvm/gems/ruby-2.0.0-p643@global/bin:/Users/nicholaslau/.rvm/rubies/ruby-2.0.0-p643/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin:/Users/nicholaslau/.rvm/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/nicholas.lau/.bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -103,16 +123,34 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 
-bindkey '^[^[[C' forward-word                        # [Opt-RightArrow] - move forward one word
-bindkey '^[^[[D' backward-word                        # [Opt-LeftArrow] - move forward one word
-# tmux zsh iterm reads Opt+Arrow differently
-bindkey '^[[1;3C' forward-word                        # [Opt-RightArrow] - move forward one word
-bindkey '^[[1;3D' backward-word                       # [Opt-LeftArrow] - move backward one word
-# bindkey '^[[1;10C' forward-kill-word
-# bindkey '^[[1;10D' backward-kill-word
+# Too Many Open Files, redfin solution to problem:
+# https://docs.google.com/document/d/1L2aqVuRfqpZB4gAqLpvs_jARPFkIN1LsnOKZEylybNg/edit
+ulimit -n 16000
 
-export PYTHONPATH=/Library/Python/2.7/site-packages
+# Fixes 'mvn -v' to point to correct JDK version
+# http://stackoverflow.com/questions/18813828/why-maven-use-jdk-1-6-but-my-java-version-is-1-7
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0_211)
 
-export PATH="$HOME/bin:/usr/local/bin:$PATH"
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM so that it can script
+# Source Shell Functions, Redfin Dev Setup
+eval "$($HOME/fin/bin/fin init -)"
+export REDFIN_MAIN=$HOME/code/main
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+export NVM_DIR="/Users/nicholas.lau/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# Redfin Corvair Build Recipes, https://redfin.atlassian.net/wiki/display/BUILD/Corvair+Build+Recipes
+export CORVAIR_CONFIG="$HOME/.corvair-config.json"
+
+PATH="/Users/nicholas.lau/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/nicholas.lau/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/nicholas.lau/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/nicholas.lau/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/nicholas.lau/perl5"; export PERL_MM_OPT;
+
+export MAVEN_OPTS="-Xmx2g -Xms256m -XX:MaxPermSize=700m -XX:ReservedCodeCacheSize=128m -XX:-MaxFDLimit"
+
+# Load rbenv automatically by appending
+# the following to ~/.zshrc:
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/code/scripts:$PATH"
