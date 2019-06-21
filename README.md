@@ -11,22 +11,22 @@
 Clone to your new box under ~/.profiles and then symlink your profiles to the repo. For example:
 
 ```bash
-git clone https://github.com/nmlau/profiles.git ~/.profiles
+git clone https://github.com/nmlau/profiles.git ~/Dropbox/Sync/profiles
 
-ln -s ~/.profiles/profiles/bash_profile ~/.bash_profile
-ln -s ~/.profiles/profiles/bashrc ~/.bashrc
-ln -s ~/.profiles/profiles/emacs ~/.emacs
-ln -s ~/.profiles/profiles/tmuxinator ~/.tmuxinator
-ln -s ~/.profiles/profiles/tmux.conf ~/.tmux.conf
-ln -s ~/.profiles/profiles/vimrc ~/.vimrc
-ln -s ~/.profiles/profiles/zshrc ~/.zshrc
+ln -s ~/Dropbox/Sync/profiles/bash_profile ~/.bash_profile
+ln -s ~/Dropbox/Sync/profiles/bashrc ~/.bashrc
+ln -s ~/Dropbox/Sync/profiles/emacs ~/.emacs
+ln -s ~/Dropbox/Sync/profiles/tmuxinator ~/.tmuxinator
+ln -s ~/Dropbox/Sync/profiles/tmux.conf ~/.tmux.conf
+ln -s ~/Dropbox/Sync/profiles/vimrc ~/.vimrc
+ln -s ~/Dropbox/Sync/profiles/zshrc ~/.zshrc
 ```
 
 ### Setting up new profiles
 
 ```bash
-cp -r ~/.tmuxinator ~/.profiles/tmuxinator # This line only needed for initial setup
-ln -s ~/.profiles/tmuxinator ~/.tmuxinator
+cp -r ~/.tmuxinator ~/Dropbox/Sync/profiles/tmuxinator # This line only needed for initial setup
+ln -s ~/Dropbox/Sync/profiles/tmuxinator ~/.tmuxinator
 ```
 
 ### Potential Issues
@@ -38,3 +38,4 @@ ln -s ~/.profiles/tmuxinator ~/.tmuxinator
 ### Change Log
 
 * 06/01/16: Removed lib/key-bindings.zsh, moved custom bindkeys in it to zshrc. This allows ohmyzsh to update and consolidiates setup
+* 06/21/19: Moving to dropbox for easier syncing
